@@ -1,0 +1,4 @@
+export const GET_DOCS = "GET_DOCS";
+export const GET_HEALTH = "GET_HEALTH";
+export const GET_INFURA_BLOCK_NUMBER = "GET_INFURA_BLOCK_NUMBER";
+export const TOGGLE_EXPAND = "TOGGLE_EXPAND";
