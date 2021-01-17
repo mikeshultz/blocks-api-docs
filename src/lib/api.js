@@ -1,6 +1,5 @@
-import axios from 'axios';
-
-const API_ROOT = "https://api.blocks.lol";
+import axios from 'axios'
+import { API_ROOT } from '../config'
 
 
 export async function getHealth() {
@@ -33,3 +32,5 @@ export async function docs() {
     return null;
   }
 }
+
+export default { getHealth, docs }

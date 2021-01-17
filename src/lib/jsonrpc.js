@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const INFURA_ROOT = "https://mainnet.infura.io/FDJajyHvjza2cZK85SZ6"
+import { JSONRPC_ROOT } from '../config'
 
 
 /**
@@ -28,20 +27,22 @@ function makeRequest(method, params) {
 export async function getBlockNo() {
   try {
     const resp = await axios.post(
-      INFURA_ROOT,
+      JSONRPC_ROOT,
       makeRequest('eth_blockNumber'),
       {
         headers: { 'Accept': 'application/json' }
       }
     );
     if (resp.status !== 200) {
-      console.error("Error getting blockNumber from infura", resp);
+      console.error("Error getting blockNumber", resp);
       return null;
     } else {
       return parseInt(resp.data.result);
     }
   } catch (err) {
-    console.error("Error trying to get API health", err);
+    console.error("Error trying to get mainnet block number", err);
     return null;
   }
 }
+
+export default { makeRequest, getBlockNo }
