@@ -11,7 +11,6 @@ export default function useDocs(friendID) {
 
     if (!fetched || fetched < now - CACHE_DURATION) {
       api.docs().then(resp => {
-        console.log('api docs:', resp)
         setFetched(now)
         setDocs(resp)
       })

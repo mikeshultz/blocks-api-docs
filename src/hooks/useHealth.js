@@ -12,10 +12,7 @@ export default function useHealth() {
 
     if (!fetched || fetched < now - CACHE_DURATION) {
       api.getHealth().then(resp => {
-        console.log('getHealth resp:', resp)
         jsonrpc.getBlockNo().then(mainnetBlockNumber => {
-          console.log('jsonrpc resp:', mainnetBlockNumber)
-          
           setFetched(now)
           setHealth({
             health: resp.message,

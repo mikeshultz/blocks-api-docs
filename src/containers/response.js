@@ -47,8 +47,6 @@ export default function Response({ schema, uri }) {
   const [expand, setExpand] = useState({})
 
   function toggleExpander(uri, ev) {
-    console.debug(ev, uri);
-    console.log('toggleExpander newval:', !(!!expand[uri]))
     setExpand({
       ...expand,
       [uri]: !(!!expand[uri])

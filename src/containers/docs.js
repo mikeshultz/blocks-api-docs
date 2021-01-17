@@ -24,8 +24,6 @@ function getExampleRequest(endpoint) {
 export default function Docs() {
   const endpoints = useDocs()
 
-  console.log('endpoints:', endpoints)
-
   if (!endpoints || endpoints.length < 1) {
     return (
       <section className="section loading">Loading...</section>

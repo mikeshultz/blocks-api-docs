@@ -8,8 +8,6 @@ import Status from './status';
 export default function App() {
   const health = useHealth()
 
-  console.log('+++health:', health)
-
   return (
     <div className="container">
       <Header />
