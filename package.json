@@ -5,7 +5,7 @@
   "scripts": {
     "prestart": "npm install",
     "clean": "rimraf dist",
-    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --progress --profile --colors",
+    "build:webpack": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.prod.js --progress --profile --color",
     "build": "npm run clean && npm run build:webpack --progress --profile --colors",
     "dev": "NODE_ENV=development npm start",
     "start": "node devServer.js",
@@ -44,7 +44,9 @@
     "rimraf": "^3.0.2",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
     "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1",
     "webpack-dev-middleware": "^4.1.0",
     "webpack-hot-middleware": "^2.6.0"
   },

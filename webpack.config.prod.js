@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: 'production',
@@ -14,16 +15,14 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: ''
   },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
   plugins: [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PROVIDER_URL': JSON.stringify(process.env.PROVIDER_URL)
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
     }),
     new HtmlWebpackPlugin({
       template: 'index.html',
@@ -36,12 +35,12 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['babel'],
+        use: ['babel-loader'],
         include: path.join(__dirname, 'src')
       },
       {
         test: /\.scss$/,
-        use: 'style!css!sass'
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   }
