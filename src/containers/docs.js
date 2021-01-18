@@ -9,7 +9,7 @@ const NUMBER_STAND_IN = 123;
 const STRING_STAND_IN = "0xdeadbeef...";
 const EXAMPLE_REQUESTS = {
   "/": `curl ${API_ROOT}/`,
-  "/health": `curl ${API_ROOT}/block`,
+  "/health": `curl ${API_ROOT}/health`,
   "/block": `curl -X POST --data '{"block_number": 5689239}' ${API_ROOT}/block`,
   "/transaction": `curl -X POST --data '{"hash": "0x1d72c87e69d88b85cf0679b5f438c7fc8490919bf59976291f8fdc09d9b41b9f"}' ${API_ROOT}/transaction`,
   "/gas-price": `curl -X POST --data '{"type": "average", "block_length": 100}' ${API_ROOT}/gas-price`,
