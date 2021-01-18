@@ -1,7 +1,7 @@
 import React from 'react';
 
 function SyncStatus({ diff }) {
-  if (diff === -1) return (<span></span>);
+  if (diff === -1) return (<span>...</span>);
   if (diff < 5) {
     return (
       <span className="success">ok</span>
@@ -17,7 +17,7 @@ function SyncStatus({ diff }) {
   }
 }
 
-export default function Status({ health, blockNumber, mainnetBlockNumber }) {
+export default function Status({ health = '...', blockNumber, mainnetBlockNumber }) {
   let healthClass = "";
 
   if (health === "ok") {
@@ -54,7 +54,7 @@ export default function Status({ health, blockNumber, mainnetBlockNumber }) {
                 <p className="title">
                   {blockNumber ?
                     blockNumber.toLocaleString() :
-                    -1
+                    `...`
                   }
                 </p>
               </div>
@@ -65,7 +65,7 @@ export default function Status({ health, blockNumber, mainnetBlockNumber }) {
                 <p className="title">
                   {mainnetBlockNumber ?
                     mainnetBlockNumber.toLocaleString() :
-                    -1
+                    `...`
                   }
                 </p>
               </div>
